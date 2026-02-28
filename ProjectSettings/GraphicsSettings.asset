@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!30 &1
+GraphicsSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 13
+  m_Deferred:
+    m_Mode: 1
+    m_Shader: {fileID: 0}
+  m_DeferredReflections:
+    m_Mode: 1
+    m_Shader: {fileID: 0}
+  m_DeferredReflectionsNoLighting:
+    m_Mode: 1
+    m_Shader: {fileID: 0}
+  m_ScreenSpaceShadows:
+    m_Mode: 1
+    m_Shader: {fileID: 0}
+  m_LensFlare:
+    m_Mode: 1
+    m_Shader: {fileID: 0}
+  m_AlwaysIncludedShaders: []
+  m_PreloadedShaders: []
+  m_SpritesDefaultMaterial: {fileID: 0}
+  m_TierSettings: []
+  m_DefaultRenderingLayerMask: 1
+  m_LogWhenShaderIsCompiled: 0
+  m_LightmapStripping: 0
+  m_FogStripping: 0
+  m_InstancingStripping: 0
+  m_LightmapKeepPlain: 1
+  m_LightmapKeepDirCombined: 1
+  m_LightmapKeepDynamicPlain: 1
+  m_LightmapKeepDynamicDirCombined: 1
+  m_LightmapKeepShadowMask: 1
+  m_LightmapKeepSubtractive: 1
+  m_LightmapKeepBakedShadowMask: 1
+  m_LightmapKeepBakedDirCombined: 1
+  m_LightmapKeepDynamicShadowMask: 1
+  m_LightmapKeepDynamicDirCombined: 1
+  m_BuildTargetShaderSettings: []
+  m_CustomRenderPipeline: {fileID: 0}
+  m_CustomRenderPipelineForScene: []
+  m_DefaultRenderPipeline: {fileID: 0}
+

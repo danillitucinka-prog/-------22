@@ -19,6 +19,14 @@ namespace LoxQuest3D.Encounters.Procedural
             yield return SurpriseCommission();
             yield return NeighborDrill();
             yield return ParcelScam();
+            yield return KioskBait();
+            yield return BarTalk();
+            yield return PharmacyStickerShock();
+            yield return PawnshopDeal();
+            yield return DkPoster();
+            yield return RailCrossingDelay();
+            yield return BusStationSnack();
+            yield return MineGateShift();
         }
 
         private static EncounterDefinition ScamVendor()
@@ -200,6 +208,149 @@ namespace LoxQuest3D.Encounters.Procedural
                 }
             };
         }
+
+        private static EncounterDefinition KioskBait()
+        {
+            return new EncounterDefinition
+            {
+                id = "proc_kiosk_bait",
+                title = "Киоск: акция",
+                body = "На витрине «2 по цене 3». Продавец говорит: «Выгодно же».",
+                allowedLocations = new List<int> { (int)LocationId.Kiosk },
+                weight = 4,
+                choices = new List<EncounterChoice>
+                {
+                    new EncounterChoice { label = "Взять «акцию»", moneyDelta = -260, stressDelta = 1, resultText = "Ты взял «акцию». Внутри оказалось, что ты купил право купить ещё раз." },
+                    new EncounterChoice { label = "Спросить, почему 2=3", moneyDelta = -50, stressDelta = 2, resultText = "Тебе объяснили маркетинг. Объяснение платное." },
+                    new EncounterChoice { label = "Уйти", moneyDelta = 0, stressDelta = 1, resultText = "Ты ушёл. Тебя всё равно догнал запах шаурмы и чувство вины." }
+                }
+            };
+        }
+
+        private static EncounterDefinition BarTalk()
+        {
+            return new EncounterDefinition
+            {
+                id = "proc_bar_talk",
+                title = "Бар: разговор",
+                body = "Незнакомец предлагает «по-братски вложиться» в идею, которая звучит как беда.",
+                allowedLocations = new List<int> { (int)LocationId.Bar },
+                weight = 3,
+                choices = new List<EncounterChoice>
+                {
+                    new EncounterChoice { label = "Скинуться", moneyDelta = -1000, stressDelta = 2, resultText = "Ты скинулся. Идея исчезла вместе с незнакомцем и твоими деньгами." },
+                    new EncounterChoice { label = "Слушать дальше", moneyDelta = -200, stressDelta = 3, resultText = "Ты слушал. За аренду ушей выставили счёт." },
+                    new EncounterChoice { label = "Свалить", moneyDelta = -120, stressDelta = 1, resultText = "Ты ушёл. Бар списал с тебя «плату за атмосферу»." }
+                }
+            };
+        }
+
+        private static EncounterDefinition PharmacyStickerShock()
+        {
+            return new EncounterDefinition
+            {
+                id = "proc_pharmacy_shock",
+                title = "Аптека: ценник",
+                body = "Ты смотришь на ценник и понимаешь: здоровье — это роскошь.",
+                allowedLocations = new List<int> { (int)LocationId.Pharmacy, (int)LocationId.Hospital },
+                weight = 3,
+                choices = new List<EncounterChoice>
+                {
+                    new EncounterChoice { label = "Купить самое дешёвое", moneyDelta = -320, stressDelta = -1, resultText = "Ты купил самое дешёвое. На упаковке написано: «не помогает, но красиво»." },
+                    new EncounterChoice { label = "Попросить аналог", moneyDelta = -180, stressDelta = 1, resultText = "Аналог есть. Но он «почти такой же», особенно по цене." },
+                    new EncounterChoice { label = "Уйти", moneyDelta = 0, stressDelta = 2, resultText = "Ты ушёл. Организм записал это как предательство." }
+                }
+            };
+        }
+
+        private static EncounterDefinition PawnshopDeal()
+        {
+            return new EncounterDefinition
+            {
+                id = "proc_pawnshop_deal",
+                title = "Ломбард",
+                body = "Вывеска мигает. Внутри оценивают твои вещи и твою самооценку.",
+                allowedLocations = new List<int> { (int)LocationId.Pawnshop },
+                weight = 2,
+                choices = new List<EncounterChoice>
+                {
+                    new EncounterChoice { label = "Сдать что-то ценное", moneyDelta = +800, stressDelta = 4, resultText = "Ты получил деньги. Чуть позже понял, что сдал нужное." },
+                    new EncounterChoice { label = "Посмотреть «выгодные предложения»", moneyDelta = -400, stressDelta = 2, resultText = "Ты купил «почти новый» чайник. Он был новым где-то в 1993." },
+                    new EncounterChoice { label = "Уйти", moneyDelta = 0, stressDelta = 1, resultText = "Ты ушёл. Ломбард посмотрел тебе в спину как банк." }
+                }
+            };
+        }
+
+        private static EncounterDefinition DkPoster()
+        {
+            return new EncounterDefinition
+            {
+                id = "proc_dk_poster",
+                title = "ДК: афиша",
+                body = "Возле ДК афиши: «Дискотека 90х», «Ярмарка мёда», «Сеанс гипноза».",
+                allowedLocations = new List<int> { (int)LocationId.PalaceOfCulture },
+                weight = 3,
+                choices = new List<EncounterChoice>
+                {
+                    new EncounterChoice { label = "Пойти на «гипноз»", moneyDelta = -500, stressDelta = 2, resultText = "Тебя загипнотизировали купить фото с собой. Фото тоже платное." },
+                    new EncounterChoice { label = "Пойти на «дискотеку 90х»", moneyDelta = -300, stressDelta = -1, resultText = "Ты вспомнил, что у тебя не было 90х. Но музыка помогла на 3 минуты." },
+                    new EncounterChoice { label = "Уйти", moneyDelta = 0, stressDelta = 1, resultText = "Ты ушёл. Афиша смотрела вслед как судьба." }
+                }
+            };
+        }
+
+        private static EncounterDefinition RailCrossingDelay()
+        {
+            return new EncounterDefinition
+            {
+                id = "proc_rail_crossing",
+                title = "Переезд",
+                body = "Шлагбаум опустился. Поезда нет. Время идёт. Ты стареешь.",
+                allowedLocations = new List<int> { (int)LocationId.RailCrossing, (int)LocationId.IndustrialZone },
+                weight = 3,
+                choices = new List<EncounterChoice>
+                {
+                    new EncounterChoice { label = "Ждать", moneyDelta = 0, stressDelta = 3, resultText = "Ты ждал. Поезда не было. Но ожидание было реальным." },
+                    new EncounterChoice { label = "Обойти", moneyDelta = -400, stressDelta = 6, resultText = "Ты обошёл. С тебя «штраф за творческий подход»." },
+                    new EncounterChoice { label = "Купить кофе у дедушки", moneyDelta = -120, stressDelta = -1, resultText = "Кофе крепкий. Переезд всё равно крепче." }
+                }
+            };
+        }
+
+        private static EncounterDefinition BusStationSnack()
+        {
+            return new EncounterDefinition
+            {
+                id = "proc_bus_station_snack",
+                title = "Автовокзал",
+                body = "На автовокзале продают пирожки, которые видели много дорог и мало санитарии.",
+                allowedLocations = new List<int> { (int)LocationId.BusStation },
+                weight = 3,
+                choices = new List<EncounterChoice>
+                {
+                    new EncounterChoice { label = "Купить пирожок", moneyDelta = -70, stressDelta = -1, resultText = "Пирожок вкусный. Организм подписал акт протеста на завтра." },
+                    new EncounterChoice { label = "Купить воду", moneyDelta = -50, stressDelta = 0, resultText = "Вода есть. Цена — как у топлива. Почти." },
+                    new EncounterChoice { label = "Ничего не брать", moneyDelta = 0, stressDelta = 1, resultText = "Ты не взял. Желудок обиделся и начал переговоры." }
+                }
+            };
+        }
+
+        private static EncounterDefinition MineGateShift()
+        {
+            return new EncounterDefinition
+            {
+                id = "proc_mine_gate",
+                title = "Проходная",
+                body = "У проходной шахты охранник смотрит на тебя как на недостающую справку.",
+                allowedLocations = new List<int> { (int)LocationId.MineGate, (int)LocationId.IndustrialZone },
+                weight = 2,
+                choices = new List<EncounterChoice>
+                {
+                    new EncounterChoice { label = "Спросить дорогу", moneyDelta = -50, stressDelta = 2, resultText = "Дорогу подсказали. За консультацию выписали квитанцию." },
+                    new EncounterChoice { label = "Попросить подработку", moneyDelta = -120, stressDelta = 3, resultText = "Подработка есть: «принеси справку, что ты человек». Справка платная." },
+                    new EncounterChoice { label = "Уйти", moneyDelta = 0, stressDelta = 1, resultText = "Ты ушёл. Вдали гудок. Кажется, город одобрил твой уход." }
+                }
+            };
+        }
     }
 }
-

@@ -1,0 +1,41 @@
+{
+  "vehicles": [
+    {
+      "id": "car_lada_tired",
+      "displayName": "Лада (уставшая)",
+      "description": "Едет на характере и скрипит как лифт в подъезде.",
+      "allowedLocations": [ 1, 2, 20, 26, 27, 19 ],
+      "weight": 5,
+      "engineSoundTag": "engine_old",
+      "tags": [ "old", "loud" ]
+    },
+    {
+      "id": "car_taxi_legend",
+      "displayName": "Такси «легенда»",
+      "description": "Приезжает мгновенно, но цена меняется по настроению Вселенной.",
+      "allowedLocations": [ 2, 20, 6, 28, 4, 14 ],
+      "weight": 3,
+      "engineSoundTag": "engine_modern",
+      "tags": [ "taxi" ]
+    },
+    {
+      "id": "car_bus_eternal",
+      "displayName": "Маршрутка",
+      "description": "Пахнет жизнью и пластиком. Сдачи нет, но есть философия.",
+      "allowedLocations": [ 2, 20, 23 ],
+      "weight": 4,
+      "engineSoundTag": "engine_bus",
+      "tags": [ "bus" ]
+    },
+    {
+      "id": "car_truck_industrial",
+      "displayName": "Грузовик",
+      "description": "Едет в промзону, везёт то, что нельзя обсуждать в чате.",
+      "allowedLocations": [ 27, 22, 23 ],
+      "weight": 2,
+      "engineSoundTag": "engine_truck",
+      "tags": [ "industrial" ]
+    }
+  ]
+}
+

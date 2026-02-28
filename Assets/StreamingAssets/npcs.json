@@ -1,0 +1,54 @@
+{
+  "npcs": [
+    {
+      "id": "npc_grandma_bench",
+      "displayName": "Бабушка на лавочке",
+      "description": "Смотрит сквозь тебя и оценивает твои решения.",
+      "allowedLocations": [ 21, 1, 26 ],
+      "weight": 4,
+      "tags": [ "grandma", "bench" ]
+    },
+    {
+      "id": "npc_kiosk_seller",
+      "displayName": "Продавец киоска",
+      "description": "Терминал сломан. Сдачи нет. Но всё есть.",
+      "allowedLocations": [ 13 ],
+      "weight": 6,
+      "linkedInteractableId": "kiosk_cigarettes",
+      "tags": [ "kiosk" ]
+    },
+    {
+      "id": "npc_bar_guru",
+      "displayName": "Эксперт по жизни",
+      "description": "Говорит громко, будто у него есть аргументы и чек.",
+      "allowedLocations": [ 14 ],
+      "weight": 3,
+      "tags": [ "bar" ]
+    },
+    {
+      "id": "npc_conductor",
+      "displayName": "Кондуктор реальности",
+      "description": "Проверяет билеты, а заодно — твою самооценку.",
+      "allowedLocations": [ 2, 20 ],
+      "weight": 3,
+      "tags": [ "transport" ]
+    },
+    {
+      "id": "npc_security_gate",
+      "displayName": "Охранник на проходной",
+      "description": "Смотрит так, будто ты уже виноват и просто не знаешь.",
+      "allowedLocations": [ 22, 27 ],
+      "weight": 2,
+      "tags": [ "industrial" ]
+    },
+    {
+      "id": "npc_market_auntie",
+      "displayName": "Тётя с рынка",
+      "description": "Продаёт семечки и мораль. Мораль — дороже.",
+      "allowedLocations": [ 6, 28 ],
+      "weight": 4,
+      "tags": [ "market" ]
+    }
+  ]
+}
+

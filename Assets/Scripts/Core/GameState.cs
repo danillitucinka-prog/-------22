@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using LoxQuest3D.Items;
 
 namespace LoxQuest3D.Core
 {
@@ -20,6 +21,7 @@ namespace LoxQuest3D.Core
         public int luck = int.MinValue;
 
         public List<string> styleTags = new();
+        public Inventory inventory = new();
 
         public static GameState New(int targetDayCount, int startingMoney, int startingStress)
         {
@@ -32,7 +34,8 @@ namespace LoxQuest3D.Core
                 money = startingMoney,
                 stress = startingStress,
                 luck = int.MinValue,
-                styleTags = new List<string>()
+                styleTags = new List<string>(),
+                inventory = new Inventory()
             };
         }
     }

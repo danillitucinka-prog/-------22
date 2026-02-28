@@ -1,0 +1,294 @@
+{
+  "interactables": [
+    {
+      "id": "apt_wallpaper_80s",
+      "title": "Квартира: обои",
+      "body": "Обои с узором, который помнит перестройку. Угол уже отклеился и смотрит на тебя.",
+      "allowedLocations": [ 0 ],
+      "weight": 4,
+      "actions": [
+        {
+          "label": "Подклеить скотчем",
+          "moneyDelta": -60,
+          "stressDelta": -1,
+          "giveItemId": 0,
+          "giveItemCount": 0,
+          "resultText": "Скотч держит. До первой влажности и первой мысли о ремонте."
+        },
+        {
+          "label": "Сделать вид, что так задумано",
+          "moneyDelta": 0,
+          "stressDelta": 1,
+          "resultText": "Ты назвал это «винтаж». Внутри стало немного грустнее."
+        }
+      ]
+    },
+    {
+      "id": "apt_tv_krystal",
+      "title": "Квартира: телевизор",
+      "body": "Старый телевизор. Каналов много, смысла мало. Антенна держится на вере.",
+      "allowedLocations": [ 0 ],
+      "weight": 5,
+      "actions": [
+        { "label": "Включить", "moneyDelta": -10, "stressDelta": -1, "resultText": "Пошёл шум. Потом новости. Потом ты пожалел, что умеешь слышать." },
+        { "label": "Постучать по корпусу", "moneyDelta": -20, "stressDelta": 0, "resultText": "Картинка появилась на секунду и исчезла, как надежда." }
+      ]
+    },
+    {
+      "id": "apt_fridge",
+      "title": "Квартира: холодильник",
+      "body": "Холодильник гудит так, будто работает за двоих. Внутри пусто, но организованно.",
+      "allowedLocations": [ 0 ],
+      "weight": 4,
+      "actions": [
+        { "label": "Проверить полки", "moneyDelta": 0, "stressDelta": 1, "resultText": "Ты проверил. Там воздух. Воздух бесплатный, но тревога — нет." },
+        { "label": "Съесть лапшу (если есть)", "moneyDelta": 0, "stressDelta": -1, "takeItemId": 4, "takeItemCount": 1, "resultText": "Ты съел лапшу. Ты всё ещё существуешь." }
+      ]
+    },
+    {
+      "id": "apt_kettle",
+      "title": "Квартира: чайник",
+      "body": "Чайник со следами накипи и судьбы. Вода закипает быстрее, чем твоя зарплата.",
+      "allowedLocations": [ 0 ],
+      "weight": 4,
+      "actions": [
+        { "label": "Кипятить воду", "moneyDelta": -15, "stressDelta": -1, "resultText": "Вода кипит. Ты тоже, но культурно." },
+        { "label": "Игнорировать", "moneyDelta": 0, "stressDelta": 1, "resultText": "Ты игнорируешь чайник. Чайник игнорирует твою жизнь." }
+      ]
+    },
+    {
+      "id": "apt_bathroom_pipe",
+      "title": "Квартира: труба",
+      "body": "Труба в ванной. Она уже пережила три ремонта и одного хозяина.",
+      "allowedLocations": [ 0 ],
+      "weight": 3,
+      "actions": [
+        { "label": "Подмотать изолентой", "moneyDelta": -40, "stressDelta": -1, "resultText": "Изолента держит. На честном слове и сырости." },
+        { "label": "Ничего не делать", "moneyDelta": -120, "stressDelta": 2, "resultText": "С утра капало. Вечером капало больше. За воду платишь ты." }
+      ]
+    },
+    {
+      "id": "entrance_noticeboard",
+      "title": "Подъезд: объявление",
+      "body": "На доске объявлений: «Сдам гараж», «Сниму гараж», «Куплю гараж». Гараж — валюта.",
+      "allowedLocations": [ 9 ],
+      "weight": 3,
+      "actions": [
+        { "label": "Позвонить по объявлению", "moneyDelta": -200, "stressDelta": 2, "resultText": "Тебе ответили: «перезвоните позже». Позже стоило 200₽." },
+        { "label": "Сорвать бумажку", "moneyDelta": -50, "stressDelta": 1, "resultText": "Ты сорвал. Теперь тебе стыдно и чуть-чуть страшно." }
+      ]
+    },
+    {
+      "id": "yard_playground",
+      "title": "Двор: площадка",
+      "body": "Ржавая площадка. Качели скрипят как лифт. Дети играют в выживание.",
+      "allowedLocations": [ 1, 26 ],
+      "weight": 3,
+      "actions": [
+        { "label": "Посидеть на качеле", "moneyDelta": 0, "stressDelta": -1, "resultText": "Ты покачался. На минуту стал легче. Потом вспомнил цены." },
+        { "label": "Уйти", "moneyDelta": 0, "stressDelta": 0, "resultText": "Ты ушёл. Качели продолжили скрипеть без тебя." }
+      ]
+    },
+    {
+      "id": "yard_garage_row",
+      "title": "Гаражи",
+      "body": "Ряд гаражей. Тут чинят жизнь и продают то, что вчера было твоим.",
+      "allowedLocations": [ 19, 27 ],
+      "weight": 3,
+      "actions": [
+        { "label": "Купить «инструмент»", "moneyDelta": -250, "stressDelta": -1, "giveItemId": 2, "giveItemCount": 1, "resultText": "Ты купил отвертку. Она немного кривая, но честная." },
+        { "label": "Спросить про скидку", "moneyDelta": -80, "stressDelta": 1, "resultText": "Скидка есть. Но сначала плата за разговор." }
+      ]
+    },
+    {
+      "id": "market_sunflower_seeds",
+      "title": "Рынок: семечки",
+      "body": "Тётя продаёт семечки и правду. Правда дороже.",
+      "allowedLocations": [ 6, 28 ],
+      "weight": 3,
+      "actions": [
+        { "label": "Купить семечки", "moneyDelta": -35, "stressDelta": -1, "resultText": "Семечки есть. Ты получил ещё и прогноз жизни на завтра." },
+        { "label": "Спросить «почём?»", "moneyDelta": -15, "stressDelta": 1, "resultText": "Вопрос платный. Ответ — бесплатный, но язвительный." }
+      ]
+    },
+    {
+      "id": "busstop_schedule",
+      "title": "Остановка: расписание",
+      "body": "Расписание висит, как закон: формально есть, фактически — миф.",
+      "allowedLocations": [ 2, 20 ],
+      "weight": 3,
+      "actions": [
+        { "label": "Проверить расписание", "moneyDelta": 0, "stressDelta": 2, "resultText": "Ты проверил. Автобус должен быть в 12:10. Сейчас 12:10 навсегда." },
+        { "label": "Сесть ждать", "moneyDelta": 0, "stressDelta": 1, "resultText": "Ты ждёшь. Ты умеешь ждать. Это главное." }
+      ]
+    },
+    {
+      "id": "rail_crossing_gate",
+      "title": "Переезд: шлагбаум",
+      "body": "Шлагбаум опущен. Поезда нет. Это философия.",
+      "allowedLocations": [ 23 ],
+      "weight": 2,
+      "actions": [
+        { "label": "Ждать", "moneyDelta": 0, "stressDelta": 2, "resultText": "Ты подождал. Старше стал на 2 стресса." },
+        { "label": "Перелезть", "moneyDelta": -300, "stressDelta": 4, "resultText": "Ты перелез. Где-то в мире появилась квитанция." }
+      ]
+    },
+    {
+      "id": "apt_carpet_wall",
+      "title": "Квартира: ковёр на стене",
+      "body": "Ковёр на стене. Он видел всё. Он молчит. Но он шумопоглощает твои решения.",
+      "allowedLocations": [ 0 ],
+      "weight": 5,
+      "actions": [
+        {
+          "label": "Похлопать ковёр",
+          "moneyDelta": 0,
+          "stressDelta": -1,
+          "resultText": "Пыль ушла в воздух. Но стало уютнее на одну секунду."
+        },
+        {
+          "label": "Снять ковёр (время перемен)",
+          "moneyDelta": -300,
+          "stressDelta": 2,
+          "resultText": "Ковёр снят. Соседи услышали твои мысли. Комфорт стал платным."
+        }
+      ]
+    },
+    {
+      "id": "entrance_mailboxes",
+      "title": "Подъезд: почтовые ящики",
+      "body": "Почтовые ящики с замками, которые давно перешли в режим «доверие».",
+      "allowedLocations": [ 9 ],
+      "weight": 4,
+      "actions": [
+        {
+          "label": "Проверить ящик",
+          "moneyDelta": -120,
+          "stressDelta": 2,
+          "resultText": "Там квитанции. И ещё квитанции. За просмотр квитанций тоже квитанция."
+        },
+        {
+          "label": "Не проверять",
+          "moneyDelta": 0,
+          "stressDelta": 1,
+          "resultText": "Ты не проверил. Тревога проверила тебя."
+        }
+      ]
+    },
+    {
+      "id": "bus_station_board",
+      "title": "Автовокзал: табло",
+      "body": "Табло показывает «задержка». Оно показывает это всю жизнь.",
+      "allowedLocations": [ 20 ],
+      "weight": 3,
+      "actions": [
+        {
+          "label": "Купить билет (надежда)",
+          "moneyDelta": -450,
+          "stressDelta": 2,
+          "resultText": "Билет куплен. Автобус — концепт. Комиссия — реальна."
+        },
+        {
+          "label": "Стоять и смотреть",
+          "moneyDelta": 0,
+          "stressDelta": 2,
+          "resultText": "Ты стоял. Табло победило. Время тоже."
+        }
+      ]
+    },
+    {
+      "id": "dk_bench",
+      "title": "ДК: лавочка",
+      "body": "Лавочка у ДК. Здесь обсуждают всё: погоду, цены и то, что раньше было лучше.",
+      "allowedLocations": [ 21 ],
+      "weight": 3,
+      "actions": [
+        {
+          "label": "Посидеть",
+          "moneyDelta": 0,
+          "stressDelta": -1,
+          "resultText": "Ты посидел. Вдалеке поезд. Внутри — ностальгия без причины."
+        },
+        {
+          "label": "Вступить в разговор",
+          "moneyDelta": -80,
+          "stressDelta": 1,
+          "resultText": "Тебе дали совет и список магазинов. Список платный."
+        }
+      ]
+    },
+    {
+      "id": "kiosk_cigarettes",
+      "title": "Киоск",
+      "body": "Окошко киоска. Всё есть, но «по карте нельзя, терминал сломан» — как всегда.",
+      "allowedLocations": [ 13 ],
+      "weight": 6,
+      "actions": [
+        {
+          "label": "Купить сигареты",
+          "moneyDelta": -180,
+          "stressDelta": -1,
+          "giveItemId": 200,
+          "giveItemCount": 1,
+          "resultText": "Ты купил сигареты. Лёгкие не рады, но нервы притихли на минуту."
+        },
+        {
+          "label": "Купить лапшу быстрого приготовления",
+          "moneyDelta": -65,
+          "stressDelta": -1,
+          "giveItemId": 4,
+          "giveItemCount": 1,
+          "resultText": "Лапша есть. Теперь у тебя есть ужин и чувство студенчества."
+        }
+      ]
+    },
+    {
+      "id": "bar_cheap_beer",
+      "title": "Бар у дома",
+      "body": "Бар, где музыка слишком громкая, а надежды слишком тихие.",
+      "allowedLocations": [ 14 ],
+      "weight": 4,
+      "actions": [
+        {
+          "label": "Взять дешевое пиво",
+          "moneyDelta": -120,
+          "stressDelta": -2,
+          "giveItemId": 201,
+          "giveItemCount": 1,
+          "resultText": "Пиво холодное. Жизнь — нет."
+        },
+        {
+          "label": "Взять «маленькую» водку",
+          "moneyDelta": -220,
+          "stressDelta": -3,
+          "giveItemId": 202,
+          "giveItemCount": 1,
+          "resultText": "Ты взял бутылочку. Бармен посмотрел так, будто уже видел продолжение."
+        }
+      ]
+    },
+    {
+      "id": "apt_closet_style",
+      "title": "Шкаф",
+      "body": "Старый шкаф скрипит как бюджет. Внутри — вещи, которые формируют судьбу.",
+      "allowedLocations": [ 0 ],
+      "weight": 5,
+      "actions": [
+        {
+          "label": "Надеть носки с сандалиями",
+          "moneyDelta": 0,
+          "stressDelta": 0,
+          "addStyleTags": [ "socks_with_sandals" ],
+          "resultText": "Ты надел носки с сандалиями. Бабушки одобряют. Вселенная — сомневается."
+        },
+        {
+          "label": "Надеть дешёвый костюм",
+          "moneyDelta": 0,
+          "stressDelta": 1,
+          "addStyleTags": [ "cheap_suit" ],
+          "resultText": "Костюм сидит так, будто это тоже кредит."
+        }
+      ]
+    }
+  ]
+}

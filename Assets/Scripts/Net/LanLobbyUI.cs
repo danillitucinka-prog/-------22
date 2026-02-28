@@ -28,6 +28,15 @@ namespace LoxQuest3D.Net
             Wire(joinButton, Join);
             Wire(stopButton, Stop);
 
+            if (addressInput != null) addressInput.text = LanBoot.Address;
+            if (portInput != null) portInput.text = LanBoot.Port.ToString();
+
+            // Auto-start if requested from menu
+            if (LanBoot.CurrentMode == LanBoot.Mode.Host)
+                Host();
+            else if (LanBoot.CurrentMode == LanBoot.Mode.Client)
+                Join();
+
             Refresh();
         }
 
@@ -91,4 +100,3 @@ namespace LoxQuest3D.Net
     }
 }
 #endif
-

@@ -17,6 +17,9 @@ namespace LoxQuest3D.UI
         public Button toStoreButton;
         public Button toParkButton;
         public Button toOfficeButton;
+        public Button toKioskButton;
+        public Button toBarButton;
+        public Button toPharmacyButton;
 
         private void Start()
         {
@@ -33,6 +36,9 @@ namespace LoxQuest3D.UI
             Wire(toStoreButton, LocationId.Store);
             Wire(toParkButton, LocationId.Park);
             Wire(toOfficeButton, LocationId.Office);
+            Wire(toKioskButton, LocationId.Kiosk);
+            Wire(toBarButton, LocationId.Bar);
+            Wire(toPharmacyButton, LocationId.Pharmacy);
 
             Refresh();
         }
@@ -55,4 +61,3 @@ namespace LoxQuest3D.UI
         }
     }
 }
-
