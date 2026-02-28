@@ -23,3 +23,17 @@ MVP scaffold for a 1st-person satirical survival-to-payday game.
 ## Notes
 - Campaign length is currently set on `GameBootstrapper.campaignLength` (Menu UI can be added next).
 - Save file path: `Application.persistentDataPath/loxquest3d.save.json`.
+
+## Content (~160 minutes)
+This scaffold uses:
+- Hand-authored “set pieces” in `Assets/StreamingAssets/encounters.json`
+- Procedural/common encounters in `Assets/Scripts/Encounters/Procedural/EncounterTemplates.cs`
+
+Add more templates + a few longer multi-step quests to reach ~160 minutes without writing hundreds of JSON entries.
+
+## Local network (LAN co-op, optional)
+LAN scripts are behind `LOXQUEST_NETCODE` compile define to avoid requiring packages by default.
+To enable:
+1. Install packages in Unity: Netcode for GameObjects + Unity Transport.
+2. Add Scripting Define Symbol: `LOXQUEST_NETCODE`
+3. Add to a scene: `NetworkManager` + `UnityTransport`, `LanLobbyUI`, and `LanCoopManager` (for state sync).
