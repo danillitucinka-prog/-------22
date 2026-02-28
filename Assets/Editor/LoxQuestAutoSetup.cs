@@ -29,11 +29,17 @@ namespace LoxQuest3D.Editor
         [MenuItem("LoxQuest3D/Setup Project (Generate Scene + Assets)")]
         public static void MenuRun()
         {
+            if (EditorApplication.isPlayingOrWillChangePlaymode)
+            {
+                Debug.LogWarning("LoxQuest3D: stop Play Mode before running Setup.");
+                return;
+            }
             RunSetup(force: true);
         }
 
         private static void TryRunOnce()
         {
+            if (EditorApplication.isPlayingOrWillChangePlaymode) return;
             if (File.Exists(MarkerPath)) return;
             RunSetup(force: false);
         }
@@ -397,9 +403,7 @@ namespace LoxQuest3D.Editor
             ambPresenter.vehicleText = vehText;
             ambPresenter.rerollButton = reroll;
 
-            // Kickstart presenters that don't auto-run in Start
-            interactPresenter.ShowNext();
-            invPresenter.Refresh();
+            // Runtime presenters initialize during Play Mode (Awake/Start).
         }
 
         private static RectTransform CreatePanel(Transform parent, string name, Vector2 anchorMin, Vector2 anchorMax)
@@ -518,20 +522,50 @@ namespace LoxQuest3D.Editor
             arrowText.alignment = TextAnchor.MiddleCenter;
             arrowText.color = Color.white;
 
-            // Template (hidden)
-            var templateGo = CreatePanel(root.transform, "Template", new Vector2(0, 0), new Vector2(1, 0));
-            templateGo.gameObject.SetActive(false);
-            var scroll = templateGo.gameObject.AddComponent<ScrollRect>();
-            var viewport = CreatePanel(templateGo, "Viewport", new Vector2(0, 0), new Vector2(1, 1));
-            viewport.gameObject.AddComponent<Mask>().showMaskGraphic = false;
-            var vpImg = viewport.gameObject.AddComponent<Image>();
-            vpImg.color = new Color(0, 0, 0, 0.6f);
-            scroll.viewport = viewport;
-            var content = CreatePanel(viewport, "Content", new Vector2(0, 1), new Vector2(1, 1));
-            content.pivot = new Vector2(0.5f, 1);
-            scroll.content = content;
+            // Template (hidden) - minimal, avoids duplicate Graphics
+            var template = new GameObject("Template");
+            template.transform.SetParent(root.transform, false);
+            var templateRt = template.AddComponent<RectTransform>();
+            templateRt.anchorMin = new Vector2(0, 0);
+            templateRt.anchorMax = new Vector2(1, 0);
+            templateRt.pivot = new Vector2(0.5f, 1);
+            templateRt.sizeDelta = new Vector2(0, 150);
+            templateRt.anchoredPosition = new Vector2(0, -10);
+            template.SetActive(false);
 
-            dd.template = templateGo;
+            var templateImg = template.GetComponent<Image>() ?? template.AddComponent<Image>();
+            templateImg.color = new Color(0, 0, 0, 0.75f);
+
+            var scroll = template.AddComponent<ScrollRect>();
+
+            var viewport = new GameObject("Viewport");
+            viewport.transform.SetParent(template.transform, false);
+            var viewportRt = viewport.AddComponent<RectTransform>();
+            viewportRt.anchorMin = Vector2.zero;
+            viewportRt.anchorMax = Vector2.one;
+            viewportRt.offsetMin = Vector2.zero;
+            viewportRt.offsetMax = Vector2.zero;
+            var viewportImg = viewport.GetComponent<Image>() ?? viewport.AddComponent<Image>();
+            viewportImg.color = new Color(0, 0, 0, 0.35f);
+            var mask = viewport.AddComponent<Mask>();
+            mask.showMaskGraphic = false;
+            scroll.viewport = viewportRt;
+
+            var content = new GameObject("Content");
+            content.transform.SetParent(viewport.transform, false);
+            var contentRt = content.AddComponent<RectTransform>();
+            contentRt.anchorMin = new Vector2(0, 1);
+            contentRt.anchorMax = new Vector2(1, 1);
+            contentRt.pivot = new Vector2(0.5f, 1);
+            contentRt.anchoredPosition = Vector2.zero;
+            contentRt.sizeDelta = new Vector2(0, 200);
+            scroll.content = contentRt;
+
+            scroll.horizontal = false;
+            scroll.vertical = true;
+            scroll.movementType = ScrollRect.MovementType.Clamped;
+
+            dd.template = templateRt;
 
             dd.options.Clear();
             foreach (var o in options)

@@ -4,5 +4,12 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
-
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/LoxQuest3D_Menu.unity
+    guid: 883afdc79659e8744911e829081c9a5f
+  - enabled: 1
+    path: Assets/Scenes/LoxQuest3D_City.unity
+    guid: 9f55f8b77b817d34c8e8f12dc8adc5c0
+  m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0

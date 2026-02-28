@@ -18,6 +18,25 @@ namespace LoxQuest3D.UI
 
         private InteractableDefinition _current;
 
+        private void Start()
+        {
+            if (bootstrapper == null)
+            {
+                Debug.LogError("InteractablePresenter: missing bootstrapper");
+                enabled = false;
+                return;
+            }
+
+            if (titleText == null || bodyText == null || resultText == null || actionButtons == null)
+            {
+                Debug.LogError("InteractablePresenter: missing UI refs");
+                enabled = false;
+                return;
+            }
+
+            ShowNext();
+        }
+
         public void ShowNext()
         {
             resultText.text = "";
@@ -79,4 +98,3 @@ namespace LoxQuest3D.UI
         }
     }
 }
-
